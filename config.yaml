@@ -53,6 +53,7 @@ bars:
       - "media"
       - "microphone"
       - "volume"
+      - "wifi"
       - "battery"
       - "power_menu"
 widgets:
@@ -224,6 +225,53 @@ widgets:
         on_left: "activate_workspace"
         on_middle: "do_nothing"
         on_right: "toggle_context_menu"
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "exec cmd.exe /c start ms-settings:network"
+        on_right: "toggle_label"
+      ethernet_label: "<span>{wifi_icon}</span>"
+      ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
+      ethernet_icon: "\ueba9"
+      get_exact_wifi_strength: false  # Optional. Will require location access permission if true.
+      wifi_icons: [
+        "\udb82\udd2e",  # Icon for 0% strength
+        "\udb82\udd1f",  # Icon for 1-24% strength
+        "\udb82\udd22",  # Icon for 25-49% strength
+        "\udb82\udd25",  # Icon for 50-74% strength
+        "\udb82\udd28"   # Icon for 75-100% strength
+      ]
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+      menu_config:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        wifi_icons_secured: [
+          "\ue670",
+          "\ue671",
+          "\ue672",
+          "\ue673",
+        ]
+        wifi_icons_unsecured: [
+          "\uec3c",
+          "\uec3d",
+          "\uec3e",
+          "\uec3f",
+        ]
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:
