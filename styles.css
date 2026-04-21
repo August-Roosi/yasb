@@ -150,16 +150,20 @@ For more information about configuration options, please visit the Wiki https://
     background-color: var(--blue);
     width: 36px;
 }
+
+/* Windows Desktops (workspaces) Widget */
 .windows-desktops {
     padding: 0 4px 0 14px;
 }
 .windows-desktops .widget-container {
-    background-color: #11111b;
+    background-color: #eadddd;
     margin: 4px 0 4px 0;
-    border-radius: 12px;
+    border-radius: 2px;
+    padding-right: 14px;
+    padding-left: 10px;
 }
 .windows-desktops .ws-btn {
-    color: #7f849c;
+    color: #000000;
     border: none;
     font-size: 14px;
     margin: 0 3px;
@@ -215,6 +219,8 @@ For more information about configuration options, please visit the Wiki https://
     padding: 4px;
     color: #ffffff;
 }
+
+/* Power Menu Widget and Popup */
 .power-menu-widget .label {
     color: #f38ba8;
     font-size: 13px;
@@ -286,10 +292,13 @@ For more information about configuration options, please visit the Wiki https://
     font-weight: 600;
 }
 .microphone-widget {
-    padding: 0 6px 0 0px;
+    padding: 0;
 }
 .microphone-widget .icon {
     font-size: 18px;
+    min-width: 0;
+    padding-right: 0;
+    margin-right: 0;
 }
 .microphone-widget .icon {
     color: var(--mauve);
@@ -298,6 +307,18 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 17px;
     color: var(--blue);
     margin: 0px 2px 0 0;
+    min-width: 0.2em;
+    padding-right: 0px;
+}
+.battery-widget .icon {
+    min-width: 0;
+    padding-right: 0;
+    margin-right: 0;
+}
+.open-meteo-widget .icon {
+    min-width: 0;
+    padding-right: 0;
+    margin-right: 0;
 }
 .open-meteo-widget,
 .volume-widget {
@@ -309,11 +330,11 @@ For more information about configuration options, please visit the Wiki https://
     color: var(--yellow);
 }
 .open-meteo-widget .label {
-    font-size: 13px;
     font-family: "Segoe UI";
-    font-weight: 400;
+    font-weight: 800;
     color: rgba(255, 255, 255, 0.8);
     padding-left: 4px;
+    padding-bottom: 4px;
 }
 .open-meteo-card {
     background-color: var(--bg-color1);
@@ -707,7 +728,8 @@ For more information about configuration options, please visit the Wiki https://
 
 /* Quick Launch Popup - main window */
 .quick-launch-popup .container {
-    background-color: rgba(29, 29, 29, 0.252);
+    background-color: rgba(29, 29, 29, 0.24);
+    border-radius: 10px;
 }
 /* Search bar container */
 .quick-launch-popup .search {
@@ -893,6 +915,60 @@ For more information about configuration options, please visit the Wiki https://
     background: rgb(19, 90, 204);
 }
 
+.taskbar-widget .app-container {
+    margin: 4px 2px;
+    border-radius: 3px;
+    padding: 0 4px;
+}
+.taskbar-widget .app-container.foreground {
+    border: 1px solid rgb(0, 200, 255);
+    background-color: rgba(255, 255, 255, 0.87);
+}
+.taskbar-widget .app-container.flashing {
+    background-color: rgba(255, 106, 106, 0.63);
+}
+.taskbar-widget .app-container.running {
+    background-color: rgba(154, 151, 151, 0.87);
+}
+.taskbar-widget .app-container:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.taskbar-widget .app-container .app-title {
+    padding-left: 4px;
+}
+/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
+.taskbar-preview {
+    border-radius: 8px;
+    background-color: #2b2c2d;
+}
+.taskbar-preview.flashing {
+    background-color: #7f434a;
+}
+.taskbar-preview .header {
+    padding-bottom: 12px;
+    padding-top: 4px;
+}
+.taskbar-preview .header .title {
+    color: #d6d6d6;
+    font-family: "Segoe UI";
+    font-weight: 600;
+    font-size: 13px;
+}
+.taskbar-preview .close-button {
+    color: #999;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    min-width: 20px;
+    border-radius: 4px;
+    min-height: 20px;
+}
+.taskbar-preview .close-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(226, 0, 0);
+}
+
+/* Wi-Fi Menu */
 .wifi-menu {
     font-family: 'Segoe UI';
     background-color: rgba(17, 17, 27, 0.4);
