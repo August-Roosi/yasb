@@ -214,6 +214,7 @@ widgets:
     options:
       label: "{%a, %d %b %H:%M}"
       label_alt: "{%A, %d %B %Y %H:%M}"
+      locale: "et_EE"
       timezones: []
       calendar: 
         blur: false
