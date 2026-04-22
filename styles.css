@@ -307,11 +307,11 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 17px;
     color: var(--blue);
     margin: 0px 2px 0 0;
-    min-width: 0.2em;
+    min-width: 1em;
     padding-right: 0px;
 }
 .battery-widget .icon {
-    min-width: 0;
+    min-width: 30;
     padding-right: 0;
     margin-right: 0;
 }
@@ -915,19 +915,21 @@ For more information about configuration options, please visit the Wiki https://
     background: rgb(19, 90, 204);
 }
 
+/* Taskbar Widget */
 .taskbar-widget .app-container {
     margin: 4px 2px;
     border-radius: 3px;
     padding: 0 4px;
 }
 .taskbar-widget .app-container.foreground {
-    border: 1px solid rgb(0, 200, 255);
+    border: 2px solid rgb(0, 200, 255);
     background-color: rgba(255, 255, 255, 0.87);
 }
 .taskbar-widget .app-container.flashing {
     background-color: rgba(255, 106, 106, 0.63);
 }
 .taskbar-widget .app-container.running {
+    border: 2px solid rgb(139, 138, 138);
     background-color: rgba(154, 151, 151, 0.87);
 }
 .taskbar-widget .app-container:hover {
