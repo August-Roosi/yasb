@@ -291,18 +291,43 @@ For more information about configuration options, please visit the Wiki https://
     color: #9ea2b4;
     font-weight: 600;
 }
+
+/* Microphone Widget and Menu */
 .microphone-widget {
+    padding: 0 0px 0 0px;
+}
+.microphone-widget .icon {
+    color: #ffffff;
+    margin: 0 0px 0 0;
     padding: 0;
 }
-.microphone-widget .icon {
-    font-size: 18px;
-    min-width: 0;
-    padding-right: 0;
-    margin-right: 0;
+.microphone-menu {
+    background-color: rgba(17, 17, 27, 0.4); 
+    min-width: 300px;
 }
-.microphone-widget .icon {
-    color: var(--mauve);
+/* System microphone volume */
+.microphone-menu .system-volume-container .volume-slider {
+    border: none;
 }
+/* Device list styles */
+.microphone-menu .microphone-container .device {
+    background-color: transparent;
+    border: none;
+    padding: 6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.microphone-menu .microphone-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+    border: 1px solid rgba(105, 180, 255, 0.75);
+}
+.microphone-menu .microphone-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.864);
+    color: rgb(0, 0, 0);
+}
+
+
 .volume-widget .icon {
     font-size: 17px;
     color: var(--blue);
@@ -320,9 +345,75 @@ For more information about configuration options, please visit the Wiki https://
     padding-right: 0;
     margin-right: 0;
 }
-.open-meteo-widget,
+
+/* Volume Widget and Menu */
 .volume-widget {
-    padding: 0 6px;
+    padding: 0 0px 0 0px;
+}
+.volume-widget .icon {
+	color: #74b0ff;;
+	margin:0 0px 0 0;
+    padding: 0;
+}
+.audio-menu {
+    background-color:rgba(17, 17, 27, 0.4); 
+    min-width: 300px;
+}
+/* System volume */
+.audio-menu .system-volume-container .volume-slider {
+    border: none;
+}
+/* Device list styles */
+.audio-menu .audio-container .device {
+    background-color:transparent;
+    border: none;
+    padding:6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.audio-menu .audio-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+    border: 1px solid rgba(105, 180, 255, 0.75);
+}
+.audio-menu .audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.80);
+    color: rgb(0, 0, 0);
+}
+/* Toggle button for application volumes (if is enabled) */
+.audio-menu .toggle-apps {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-height: 24px;
+    min-width: 24px;
+    border-radius: 4px;
+}
+.audio-menu .toggle-apps.expanded {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.audio-menu .toggle-apps:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    
+}
+/* Container for application volumes (if is enabled) */
+.audio-menu .apps-container {
+    padding: 8px;
+    margin-top:20px;
+    border-radius: 8px;
+    background-color:rgba(255, 255, 255, 0.062)
+}
+.audio-menu .apps-container .app-volume .app-icon-container {
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+.audio-menu .apps-container .app-volume .app-icon-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 .open-meteo-widget .icon {
     font-size: 18px;
