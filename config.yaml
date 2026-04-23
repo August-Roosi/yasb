@@ -53,6 +53,7 @@ bars:
       - "microphone"
       - "volume"
       - "wifi"
+      - "vpn_status"
       - "battery"
       - "power_menu"
 widgets:
@@ -78,7 +79,7 @@ widgets:
       icon_size: 32
       home_page: false
       compact_mode: false
-      compact_text: false
+      compact_text: true
       popup:
         width: 720
         height: 400
@@ -297,6 +298,20 @@ widgets:
           "\uec3e",
           "\uec3f",
         ]
+  vpn_status:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "<span>VPN</span>"
+      label_alt: "<span>VPN</span>"
+      class_name: "vpn-status-widget"
+      exec_options:
+        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\augustro\\.config\\yasb\\vpn_status.ps1"
+        run_interval: 5000
+        return_format: "string"
+        hide_empty: true
+        use_shell: true
+      callbacks:
+        on_left: "toggle_label"
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:

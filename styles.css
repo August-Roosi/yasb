@@ -123,6 +123,26 @@ For more information about configuration options, please visit the Wiki https://
 .widget .label {
     padding: 0px 2px;
 }
+
+.custom-widget.vpn-status-widget,
+.custom-widget.vpn-status-widget .widget-container,
+.custom-widget.vpn-status-widget .label,
+.custom-widget.vpn-status-widget .icon {
+    padding: 0;
+    margin: 0;
+}
+
+.wifi-widget {
+    padding-right: 5px;
+    margin-right: 0;
+}
+
+.wifi-widget .label,
+.wifi-widget .icon {
+    padding-right: 0;
+    margin-right: 0;
+}
+
 .komorebi-active-layout {
     padding: 0
 }
@@ -1062,6 +1082,11 @@ For more information about configuration options, please visit the Wiki https://
 }
 
 /* Wi-Fi Menu */
+.wifi-menu .icon {
+    padding: 0;
+    margin: 0;
+}
+
 .wifi-menu {
     font-family: 'Segoe UI';
     background-color: rgba(17, 17, 27, 0.4);
@@ -1123,7 +1148,7 @@ For more information about configuration options, please visit the Wiki https://
 .wifi-menu .wifi-item .icon {
     font-family: 'Segoe Fluent Icons';
     font-size: 26px;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
 .wifi-menu .wifi-item .name {
