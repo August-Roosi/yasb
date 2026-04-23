@@ -41,7 +41,6 @@ bars:
       right: 0
     widgets:
       left:
-      - "home"
       - "windows_workspaces"
       - "taskbar"
       - "quick_launch"
@@ -72,7 +71,7 @@ widgets:
   quick_launch:
     type: "yasb.quick_launch.QuickLaunchWidget"
     options:
-      label: "\uf002"
+      label: ""
       search_placeholder: "Otsi rakendusi..."
       max_results: 50
       show_icons: true
