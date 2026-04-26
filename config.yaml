@@ -133,9 +133,9 @@ widgets:
         blink_interval: 500
       status_thresholds:
         critical: 10
-        low: 25
-        medium: 75
-        high: 95
+        low: 20
+        medium: 50
+        high: 75
         full: 100
       status_icons:
         icon_charging: "\udb81\udea5"
@@ -156,7 +156,7 @@ widgets:
       label_alt: "{artist} - {title}"
       max_field_size:
         label: 16
-        label_alt: 24
+        label_alt: 70
       show_thumbnail: true
       controls_only: false
       controls_left: true
