@@ -155,7 +155,7 @@ widgets:
       label: "{title}"
       label_alt: "{artist} - {title}"
       max_field_size:
-        label: 16
+        label: 40
         label_alt: 70
       show_thumbnail: true
       controls_only: false

@@ -19,7 +19,7 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 12px;
     color: var(--text1);
     font-weight: 600;
-    font-family: "JetBrainsMono Nerd Font", "Segoe Fluent Icons", "Segoe MDL2 Assets";
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", "Segoe Fluent Icons", "Segoe MDL2 Assets";
 }
 .yasb-bar {
     background-color: var(--bg-color1);
@@ -133,14 +133,14 @@ For more information about configuration options, please visit the Wiki https://
 }
 
 .wifi-widget {
-    padding-right: 5px;
-    margin-right: 0;
+    padding-right: 20px;
+    margin-right: 0px;
 }
 
 .wifi-widget .label,
 .wifi-widget .icon {
-    padding-right: 0;
-    margin-right: 0;
+    padding-right: 0px;
+    margin-right: 0px;
 }
 
 .quick-launch-widget,
@@ -184,24 +184,28 @@ For more information about configuration options, please visit the Wiki https://
 
 /* Windows Desktops (workspaces) Widget */
 .windows-desktops {
-    padding: 0 4px 0 14px;
+    padding: 0 4px 0 10px;
 }
 .windows-desktops .widget-container {
     background-color: #eadddd;
     margin: 4px 0 4px 0;
     border-radius: 2px;
-    padding-right: 14px;
-    padding-left: 10px;
+    padding-right: 10px;
+    padding-left: 6px;
 }
 .windows-desktops .ws-btn {
     color: #000000;
     border: none;
-    font-size: 14px;
+    font-weight: 1000;
+    font-size: 18px;
     margin: 0 3px;
     padding: 0;
+    text-align: center;
 }
 .windows-desktops .ws-btn.active {
-    color: #89b4fa;
+    color: #136bf8;
+    font-size: 19px;
+    width: 25px;
 }
 
 .windows-desktops .context-menu {
@@ -361,10 +365,10 @@ For more information about configuration options, please visit the Wiki https://
 
 .volume-widget .icon {
     font-size: 17px;
-    color: var(--blue);
-    margin: 0px 2px 0 0;
+    color: #65a8ff;
+    margin: 0px 6px 0 0;
     min-width: 1em;
-    padding-right: 0px;
+    padding-right: 0;
 }
 .battery-widget .icon {
     min-width: 30;
@@ -386,11 +390,6 @@ For more information about configuration options, please visit the Wiki https://
 /* Volume Widget and Menu */
 .volume-widget {
     padding: 0 0px 0 0px;
-}
-.volume-widget .icon {
-	color: #74b0ff;;
-	margin:0 0px 0 0;
-    padding: 0;
 }
 .audio-menu {
     background-color:rgba(17, 17, 27, 0.4); 
@@ -491,7 +490,6 @@ For more information about configuration options, please visit the Wiki https://
 .open-meteo-card-today .label.sunrisesunset-icon {
     font-size: 18px;
     color: rgb(201, 204, 159);
-    font-family: "JetBrainsMono Nerd Font", "Segoe Fluent Icons", "Segoe MDL2 Assets";
 }
 .open-meteo-card-day {
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -620,16 +618,20 @@ For more information about configuration options, please visit the Wiki https://
 .open-meteo-card .search-results::item:hover {
     background-color: rgba(255, 255, 255, 0.05);
 }
+
+/* media widget */
 .media-widget {
     padding: 0;
-    margin: 0;
+    margin-right: 20px;
     border-radius: 0;
+}
+.media-widget .label {
+    min-width: 200px;
 }
 .media-widget .btn {
     color: #7a7f8b;
     padding: 0 4px;
     margin: 0;
-    font-family: "JetBrainsMono Nerd Font", "Segoe Fluent Icons", "Segoe MDL2 Assets";
     font-weight: 400;
     font-size: 20px;
 }
@@ -856,7 +858,7 @@ For more information about configuration options, please visit the Wiki https://
 
 /* Quick Launch Popup - main window */
 .quick-launch-popup .container {
-    background-color: rgba(29, 29, 29, 0.24);
+    background-color: rgba(29, 29, 29, 0.04);
     border-radius: 10px;
 }
 /* Search bar container */
