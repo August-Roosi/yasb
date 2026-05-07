@@ -172,12 +172,12 @@ widgets:
         play: "\udb81\udc0a"
         pause: "\udb80\udfe4"
       media_menu:
-        blur: false
+        blur: true
         round_corners: false
         alignment: "right"
         direction: "down"
         offset_top: 6
-        offset_left: 0
+        offset_left: 80
         thumbnail_corner_radius: 4
         thumbnail_size: 100
         max_title_size: 80
@@ -304,7 +304,7 @@ widgets:
       label_alt: "<span>VPN</span>"
       class_name: "vpn-status-widget"
       exec_options:
-        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\augustro\\.config\\yasb\\vpn_status.ps1"
+        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\roosi\\.config\\yasb\\vpn_status.ps1"
         run_interval: 5000
         return_format: "string"
         hide_empty: true
