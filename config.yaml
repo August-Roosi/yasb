@@ -300,9 +300,10 @@ widgets:
   vpn_status:
     type: "yasb.custom.CustomWidget"
     options:
-      label: "<span>VPN</span>"
-      label_alt: "<span>VPN</span>"
+      label: "<span>\udb81\udd82</span>{data}"
+      label_alt: "<span>\udb81\udd82</span>{data}"
       class_name: "vpn-status-widget"
+      tooltip: true
       exec_options:
         run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\roosi\\.config\\yasb\\vpn_status.ps1"
         run_interval: 5000

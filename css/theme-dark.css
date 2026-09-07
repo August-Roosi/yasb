@@ -1,0 +1,122 @@
+/*
+ * theme-dark.css - the default dark palette.
+ * Generated from the token table; edit values here, never in base.css.
+ */
+:root {
+    /* --- Text - solid ramp --- */
+    --text-1: #ffffff;
+    --text-2: #d4d9eb;
+    --text-3: #b4bacb;
+    --text-4: #9399b2;
+    --text-5: #7f849c;
+    --text-6: #4e525c;
+    --text-inverse: #000000;
+    --text-inverse-soft: #282936;
+    --text-disabled: rgba(150, 150, 150, 0.7);
+    --on-accent: #ffffff;
+
+    /* --- Text - alpha ramp (over translucent surfaces) --- */
+    --fg-90: rgba(255, 255, 255, 0.9);
+    --fg-85: rgba(255, 255, 255, 0.85);
+    --fg-80: rgba(255, 255, 255, 0.8);
+    --fg-70: rgba(255, 255, 255, 0.7);
+    --fg-60: rgba(255, 255, 255, 0.6);
+    --fg-40: rgba(255, 255, 255, 0.4);
+    --fg-30: rgba(255, 255, 255, 0.3);
+    --fg-dim: rgba(162, 177, 196, 0.85);
+
+    /* --- Surfaces --- */
+    --bar-bg: #191919;
+    --surface-1: #333333;
+    --surface-2: #404040;
+    --surface-3: #444444;
+    --surface-4: #585858;
+    --surface-dialog: rgb(45, 46, 48);
+    --surface-dialog-hover: rgb(59, 60, 63);
+    --surface-inset: #2b2c2d;
+    --chip-bg: #eadddd;
+    --chip-bg-alt: #bac2de;
+    --chip-accent: #136bf8;
+
+    /* --- Popup scrim --- */
+    --popup-100: rgba(17, 17, 27, 1);
+    --popup-80: rgba(17, 17, 27, 0.8);
+    --popup-75: rgba(17, 17, 27, 0.75);
+    --popup-60: rgba(17, 17, 27, 0.6);
+    --popup-40: rgba(17, 17, 27, 0.4);
+    --popup-20: rgba(17, 17, 27, 0.2);
+    --popup-10: rgba(17, 17, 27, 0.1);
+    --popup-04: rgba(17, 17, 27, 0.04);
+    --popup-00: rgba(17, 17, 27, 0);
+
+    /* --- Overlay ramp (hover / fill states) --- */
+    --overlay-03: rgba(255, 255, 255, 0.03);
+    --overlay-04: rgba(255, 255, 255, 0.04);
+    --overlay-05: rgba(255, 255, 255, 0.05);
+    --overlay-06: rgba(255, 255, 255, 0.06);
+    --overlay-08: rgba(255, 255, 255, 0.085);
+    --overlay-10: rgba(255, 255, 255, 0.1);
+    --overlay-15: rgba(255, 255, 255, 0.15);
+    --overlay-20: rgba(255, 255, 255, 0.2);
+    --overlay-30: rgba(255, 255, 255, 0.3);
+    --overlay-80: rgba(255, 255, 255, 0.8);
+    --overlay-85: rgba(255, 255, 255, 0.87);
+    --shadow-15: rgba(0, 0, 0, 0.15);
+    --shadow-30: rgba(0, 0, 0, 0.3);
+    --transparent: rgba(0, 0, 0, 0);
+    --muted-10: rgba(128, 130, 158, 0.1);
+    --muted-15: rgba(128, 130, 158, 0.15);
+    --muted-30: rgba(128, 130, 158, 0.3);
+    --muted-disabled: rgba(100, 100, 100, 0.2);
+
+    /* --- Accents --- */
+    --accent: #448fff;
+    --accent-bright: #4cc2ff;
+    --accent-soft: #65a8ff;
+    --accent-deep: #134c96;
+    --accent-solid: #0078d4;
+    --accent-solid-hover: #2167d8;
+    --accent-selected: #74b0ff;
+    --accent-border: #89b4fa;
+    --accent-glow: rgba(105, 180, 255, 0.75);
+    --accent-track: rgba(0, 110, 255, 0.5);
+    --accent-track-hover: rgba(0, 110, 255, 0.7);
+
+    /* --- Status --- */
+    --info: #89dceb;
+    --success: #199143;
+    --warning: #ffd16d;
+    --danger: #f38ba8;
+    --danger-solid: #ff583b;
+    --danger-strong: rgb(226, 0, 0);
+    --danger-track: rgba(255, 80, 80, 0.5);
+    --danger-track-hover: rgba(255, 80, 80, 0.7);
+
+    /* --- Taskbar states --- */
+    --task-active-border: rgb(0, 200, 255);
+    --task-flash-bg: rgba(255, 106, 106, 0.63);
+    --task-flash-solid: #7f434a;
+    --task-running-bg: rgba(154, 151, 151, 0.87);
+    --task-running-border: rgb(139, 138, 138);
+
+    /* --- Data visualisation (weather card) --- */
+    --data-temp: #c9be48;
+    --data-rain: #4a90e2;
+    --data-snow: #a0c4ff;
+    --data-sun: rgb(201, 204, 159);
+    --data-rain-anim: rgba(150, 200, 255, 40);
+    --data-snow-anim: rgba(255, 255, 255, 150);
+
+    /* --- Borders --- */
+    --border-subtle: rgba(255, 255, 255, 0.075);
+    --border-1: rgba(255, 255, 255, 0.1);
+    --border-2: rgba(255, 255, 255, 0.2);
+    --border-3: rgba(255, 255, 255, 0.3);
+    --border-none: rgba(255, 255, 255, 0);
+    --border-shadow: rgb(0, 0, 0);
+    --border-strong: #5e6070;
+
+    /* --- Legacy accent palette --- */
+    --lavender: #b4befe;
+
+}

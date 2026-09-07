@@ -1,0 +1,31 @@
+/*
+ * widgets.css - hand-written rules layered on top of base.css.
+ *
+ * base.css was produced by migrating the original stylesheet to design tokens.
+ * Keep new hand-authored rules here so they are never at risk from that file,
+ * and so it stays obvious which styling is original and which was added later.
+ * Imported last, so equal-specificity rules here win.
+ */
+
+/* VPN status widget.
+ * Rendered as a filled badge rather than plain bar text: the whole point is to
+ * be unmissable at a glance. Hidden entirely when no tunnel is up (hide_empty),
+ * so the badge showing at all already means "you are on something". */
+.custom-widget.vpn-status-widget .widget-container {
+    background-color: var(--accent-track);
+    border: 1px solid var(--accent-glow);
+    border-radius: 4px;
+    margin: 4px 2px 4px 2px;
+    padding: 0 8px 0 6px;
+}
+.custom-widget.vpn-status-widget .label {
+    color: var(--on-accent);
+    font-weight: 700;
+    padding: 0 0 0 5px;
+}
+.custom-widget.vpn-status-widget .icon {
+    color: var(--on-accent);
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}

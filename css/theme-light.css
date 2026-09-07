@@ -1,0 +1,126 @@
+/*
+ * theme-light.css - light palette, applied automatically while a VPN tunnel is up.
+ *
+ * Hand-tuned rather than a mechanical inversion of theme-dark.css. Three groups
+ * deliberately do NOT invert, because they sit on a fill that inverts with them:
+ *   --on-accent          always white; sits on saturated status fills
+ *   --text-inverse-soft  always dark;  sits on --accent-selected (light blue in both)
+ *   --accent-selected    stays light blue for that reason
+ */
+:root {
+    /* --- Text - solid ramp --- */
+    --text-1: #14161a;
+    --text-2: #23272f;
+    --text-3: #3c424e;
+    --text-4: #5b6270;
+    --text-5: #737a88;
+    --text-6: #9aa0ac;
+    --text-inverse: #ffffff;
+    --text-inverse-soft: #282936;
+    --text-disabled: rgba(0, 0, 0, 0.35);
+    --on-accent: #ffffff;
+
+    /* --- Text - alpha ramp (over translucent surfaces) --- */
+    --fg-90: rgba(0, 0, 0, 0.88);
+    --fg-85: rgba(0, 0, 0, 0.82);
+    --fg-80: rgba(0, 0, 0, 0.76);
+    --fg-70: rgba(0, 0, 0, 0.66);
+    --fg-60: rgba(0, 0, 0, 0.56);
+    --fg-40: rgba(0, 0, 0, 0.40);
+    --fg-30: rgba(0, 0, 0, 0.32);
+    --fg-dim: rgba(45, 55, 72, 0.85);
+
+    /* --- Surfaces --- */
+    --bar-bg: #eef0f4;
+    --surface-1: #dde1e9;
+    --surface-2: #d2d7e0;
+    --surface-3: #c7cdd8;
+    --surface-4: #b6bdca;
+    --surface-dialog: #f7f8fa;
+    --surface-dialog-hover: #e8ebf1;
+    --surface-inset: #e3e6ec;
+    --chip-bg: #2a2f3a;
+    --chip-bg-alt: #3b4250;
+    --chip-accent: #7fb0ff;
+
+    /* --- Popup scrim --- */
+    --popup-100: rgba(249, 250, 252, 1);
+    --popup-80: rgba(249, 250, 252, 0.9);
+    --popup-75: rgba(249, 250, 252, 0.87);
+    --popup-60: rgba(249, 250, 252, 0.78);
+    --popup-40: rgba(249, 250, 252, 0.62);
+    --popup-20: rgba(249, 250, 252, 0.36);
+    --popup-10: rgba(249, 250, 252, 0.2);
+    --popup-04: rgba(249, 250, 252, 0.1);
+    --popup-00: rgba(249, 250, 252, 0);
+
+    /* --- Overlay ramp (hover / fill states) --- */
+    --overlay-03: rgba(0, 0, 0, 0.03);
+    --overlay-04: rgba(0, 0, 0, 0.04);
+    --overlay-05: rgba(0, 0, 0, 0.05);
+    --overlay-06: rgba(0, 0, 0, 0.06);
+    --overlay-08: rgba(0, 0, 0, 0.08);
+    --overlay-10: rgba(0, 0, 0, 0.10);
+    --overlay-15: rgba(0, 0, 0, 0.14);
+    --overlay-20: rgba(0, 0, 0, 0.18);
+    --overlay-30: rgba(0, 0, 0, 0.26);
+    --overlay-80: rgba(0, 0, 0, 0.78);
+    --overlay-85: rgba(0, 0, 0, 0.84);
+    --shadow-15: rgba(0, 0, 0, 0.07);
+    --shadow-30: rgba(0, 0, 0, 0.13);
+    --transparent: rgba(0, 0, 0, 0);
+    --muted-10: rgba(91, 98, 112, 0.10);
+    --muted-15: rgba(91, 98, 112, 0.15);
+    --muted-30: rgba(91, 98, 112, 0.28);
+    --muted-disabled: rgba(140, 146, 158, 0.22);
+
+    /* --- Accents --- */
+    --accent: #0b57d0;
+    --accent-bright: #0a6ed1;
+    --accent-soft: #1160c9;
+    --accent-deep: #cfe0f8;
+    --accent-solid: #0b57d0;
+    --accent-solid-hover: #0947ad;
+    --accent-selected: #74b0ff;
+    --accent-border: #2f6fd0;
+    --accent-glow: rgba(11, 87, 208, 0.55);
+    --accent-track: rgba(0, 90, 220, 0.55);
+    --accent-track-hover: rgba(0, 90, 220, 0.75);
+
+    /* --- Status --- */
+    --info: #0b7285;
+    --success: #157a3c;
+    --warning: #9a6b00;
+    --danger: #c2255c;
+    --danger-solid: #d9401f;
+    --danger-strong: rgb(200, 0, 0);
+    --danger-track: rgba(220, 50, 50, 0.55);
+    --danger-track-hover: rgba(220, 50, 50, 0.75);
+
+    /* --- Taskbar states --- */
+    --task-active-border: rgb(0, 120, 200);
+    --task-flash-bg: rgba(220, 70, 70, 0.55);
+    --task-flash-solid: #f2c4c4;
+    --task-running-bg: rgba(120, 125, 135, 0.35);
+    --task-running-border: rgb(150, 155, 165);
+
+    /* --- Data visualisation (weather card) --- */
+    --data-temp: #a08b12;
+    --data-rain: #2f6fb5;
+    --data-snow: #5b8fd6;
+    --data-sun: rgb(140, 120, 30);
+    --data-rain-anim: rgba(60, 120, 200, 40);
+    --data-snow-anim: rgba(120, 150, 200, 150);
+
+    /* --- Borders --- */
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-1: rgba(0, 0, 0, 0.12);
+    --border-2: rgba(0, 0, 0, 0.20);
+    --border-3: rgba(0, 0, 0, 0.28);
+    --border-none: rgba(0, 0, 0, 0);
+    --border-shadow: rgba(0, 0, 0, 0.15);
+    --border-strong: #a8afbd;
+
+    /* --- Legacy accent palette --- */
+    --lavender: #5b5fc7;
+}
