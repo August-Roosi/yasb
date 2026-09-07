@@ -1,7 +1,7 @@
 /*
  * base.css - structure and layout for the YASB bar.
  *
- * Contains NO literal colours. Every colour is a design token resolved by
+ * Contains no literal colours. Every colour is a design token resolved by
  * whichever theme file is imported first (see ../styles.css).
  * Token reference: css/theme-dark.css
  */
@@ -204,7 +204,7 @@ For more information about configuration options, please visit the Wiki https://
 }
 
 .windows-desktops .context-menu {
-    background-color: var(--popup-75);
+    background-color: var(--popup-bg);
     border: none;
     border-radius: 2px;
     padding: 8px 0;
@@ -223,7 +223,7 @@ For more information about configuration options, please visit the Wiki https://
 }
 
 .windows-desktops .rename-dialog {
-    background-color: var(--popup-75);
+    background-color: var(--popup-bg);
 }
 .windows-desktops .rename-dialog QPushButton {
     background-color: var(--overlay-10);
@@ -256,7 +256,7 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 13px;
 }
 .power-menu-popup {
-    background-color: var(--overlay-04);
+    background-color: var(--popup-bg);
     padding: 32px;
     border-radius: 32px;
 }
@@ -313,7 +313,7 @@ For more information about configuration options, please visit the Wiki https://
     font-family: 'Segoe UI'
 }
 .power-menu-overlay {
-    background-color: var(--shadow-15);
+    background-color: var(--popup-backdrop);
 }
 .power-menu-overlay .uptime {
     font-size: 16px;
@@ -332,7 +332,7 @@ For more information about configuration options, please visit the Wiki https://
     padding: 0;
 }
 .microphone-menu {
-    background-color: var(--popup-40); 
+    background-color: var(--popup-bg); 
     min-width: 300px;
 }
 /* System microphone volume */
@@ -387,7 +387,7 @@ For more information about configuration options, please visit the Wiki https://
     padding: 0 0px 0 0px;
 }
 .audio-menu {
-    background-color:var(--popup-40); 
+    background-color:var(--popup-bg); 
     min-width: 300px;
 }
 /* System volume */
@@ -556,7 +556,7 @@ For more information about configuration options, please visit the Wiki https://
     max-width: 24px;
     max-height: 24px;
     font-size: 14px;
-    color: var(--fg-30);
+    color: var(--fg-60);
     border: 1px solid transparent;
 }
 .open-meteo-card .hourly-data-button.active {
@@ -590,14 +590,14 @@ For more information about configuration options, please visit the Wiki https://
     padding: 8px 12px;
     border: 1px solid var(--border-strong);
     border-radius: 6px;
-    background-color: var(--popup-10);
+    background-color: var(--popup-inset);
     color: var(--text-2);
     font-family: "Segoe UI";
     font-size: 14px;
 }
 .open-meteo-card .search-input:focus {
     border: 1px solid var(--accent-border);
-    background-color: var(--popup-20);
+    background-color: var(--popup-inset-focus);
 }
 .open-meteo-card .search-results {
     border: 1px solid var(--border-none);
@@ -638,11 +638,11 @@ For more information about configuration options, please visit the Wiki https://
 .clock-popup.timer,
 .clock-popup.calendar {
     min-width: 460px;
-    background-color: var(--popup-100);
+    background-color: var(--popup-bg);
 }
 .clock-popup.calendar .calendar-table,
 .clock-popup.calendar .calendar-table::item {
-    background-color: var(--popup-00);
+    background-color: var(--transparent);
     color: var(--fg-dim);
     font-family: 'Segoe UI';
     margin: 0;
@@ -890,7 +890,7 @@ For more information about configuration options, please visit the Wiki https://
 .media-menu {
     min-width: 420px;
     max-width: 420px;
-    background-color: var(--popup-04);
+    background-color: var(--popup-bg);
     border-radius: 8px;
     border: 1px solid var(--surface-1);
 }
@@ -949,7 +949,7 @@ For more information about configuration options, please visit the Wiki https://
     margin-left: 10px;
 }
 .media-menu .btn:hover {
-    color: white;
+    color: var(--text-1);
     background-color: var(--overlay-10);
 }
 .media-menu .btn.play {
@@ -988,7 +988,7 @@ For more information about configuration options, please visit the Wiki https://
     background: var(--overlay-20);
 }
 .media-menu .progress-slider::sub-page {
-    background: white;
+    background: var(--accent);
     border-radius: 3px;
     height: 4px;
 }
@@ -1038,7 +1038,7 @@ For more information about configuration options, please visit the Wiki https://
 }
 .calendar .calendar-table,
 .calendar .calendar-table::item {
-    background-color: var(--popup-00);
+    background-color: var(--transparent);
     color: var(--fg-dim);
     font-family: "Segoe UI";
     margin: 0;
@@ -1097,7 +1097,7 @@ For more information about configuration options, please visit the Wiki https://
 
 /* Quick Launch Popup - main window */
 .quick-launch-popup .container {
-    background-color: var(--popup-04);
+    background-color: var(--popup-bg);
     border-radius: 10px;
 }
 /* Search bar container */
@@ -1347,7 +1347,7 @@ For more information about configuration options, please visit the Wiki https://
 
 .wifi-menu {
     font-family: 'Segoe UI';
-    background-color: var(--popup-40);
+    background-color: var(--popup-bg);
     max-height: 350px;
     min-height: 375px;
     min-width: 375px;
@@ -1364,8 +1364,8 @@ For more information about configuration options, please visit the Wiki https://
     font-weight: 600;
     margin-bottom: 2px;
     padding: 12px;
-    background-color: var(--popup-60);
-    color: white;
+    background-color: var(--popup-header);
+    color: var(--text-1);
     border-bottom: 1px solid var(--border-1);
 }
 
@@ -1375,13 +1375,13 @@ For more information about configuration options, please visit the Wiki https://
     font-weight: 600;
     margin-bottom: 2px;
     padding: 12px;
-    background-color: red;
-    color: white;
+    background-color: var(--danger-strong);
+    color: var(--on-accent);
     border-bottom: 1px solid var(--border-1);
 }
 
 .wifi-menu .wifi-list {
-    background-color: var(--popup-80);
+    background-color: var(--popup-body);
     margin-right: 3px;
 }
 
@@ -1457,7 +1457,7 @@ For more information about configuration options, please visit the Wiki https://
     padding: 12px;
     margin-top: 2px;
     color: var(--text-4);
-    background-color: var(--popup-60);
+    background-color: var(--popup-header);
     border-top: 1px solid var(--border-1);
 }
 

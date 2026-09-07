@@ -81,7 +81,7 @@ widgets:
       popup:
         width: 720
         height: 400
-        blur: true
+        blur: false
         round_corners: true
         round_corners_type: "normal"
         border_color: "System"
@@ -171,7 +171,7 @@ widgets:
         play: "\udb81\udc0a"
         pause: "\udb80\udfe4"
       media_menu:
-        blur: true
+        blur: false
         round_corners: false
         alignment: "right"
         direction: "down"
@@ -277,7 +277,7 @@ widgets:
         radius: 3
         offset: [ 1, 1 ]
       menu_config:
-        blur: true
+        blur: false
         round_corners: true
         round_corners_type: "normal"
         border_color: "System"
@@ -398,7 +398,7 @@ widgets:
         - "\uf027"  # Icon for 31-60% volume
         - "\uf028"  # Icon for 61-100% volume
       audio_menu:
-        blur: true
+        blur: false
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
@@ -426,7 +426,7 @@ widgets:
         normal: "\uf130"
         muted: "\uf131"
       mic_menu:
-        blur: true
+        blur: false
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
@@ -448,7 +448,7 @@ widgets:
       uptime: true
       show_user: true
       blur: false
-      blur_background: true
+      blur_background: false
       animation_duration: 120 # Milliseconds
       button_row: 3 # Number of buttons in a row, min 1 max 6
       buttons:

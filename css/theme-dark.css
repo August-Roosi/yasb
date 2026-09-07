@@ -22,7 +22,6 @@
     --fg-70: rgba(255, 255, 255, 0.7);
     --fg-60: rgba(255, 255, 255, 0.6);
     --fg-40: rgba(255, 255, 255, 0.4);
-    --fg-30: rgba(255, 255, 255, 0.3);
     --fg-dim: rgba(162, 177, 196, 0.85);
 
     /* --- Surfaces --- */
@@ -38,16 +37,14 @@
     --chip-bg-alt: #bac2de;
     --chip-accent: #136bf8;
 
-    /* --- Popup scrim --- */
-    --popup-100: rgba(17, 17, 27, 1);
-    --popup-80: rgba(17, 17, 27, 0.8);
-    --popup-75: rgba(17, 17, 27, 0.75);
-    --popup-60: rgba(17, 17, 27, 0.6);
-    --popup-40: rgba(17, 17, 27, 0.4);
-    --popup-20: rgba(17, 17, 27, 0.2);
-    --popup-10: rgba(17, 17, 27, 0.1);
-    --popup-04: rgba(17, 17, 27, 0.04);
-    --popup-00: rgba(17, 17, 27, 0);
+
+    /* --- Popup surfaces (opaque: popups must never show the desktop through) --- */
+    --popup-bg: #1b1b24;
+    --popup-header: #23232e;
+    --popup-body: #17171f;
+    --popup-inset: #14141c;
+    --popup-inset-focus: #101018;
+    --popup-backdrop: #12121a;
 
     /* --- Overlay ramp (hover / fill states) --- */
     --overlay-03: rgba(255, 255, 255, 0.03);
@@ -61,7 +58,6 @@
     --overlay-30: rgba(255, 255, 255, 0.3);
     --overlay-80: rgba(255, 255, 255, 0.8);
     --overlay-85: rgba(255, 255, 255, 0.87);
-    --shadow-15: rgba(0, 0, 0, 0.15);
     --shadow-30: rgba(0, 0, 0, 0.3);
     --transparent: rgba(0, 0, 0, 0);
     --muted-10: rgba(128, 130, 158, 0.1);

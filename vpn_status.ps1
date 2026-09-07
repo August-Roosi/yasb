@@ -229,7 +229,19 @@ try {
     if ($null -eq $current) { $current = '' }
 
     if ($current -ne $desired) {
-        Set-Content -Path $themeFile -Value $desired -Encoding utf8 -NoNewline
+        # Write to a sibling temp file and rename over the target. yasb watches
+        # this directory and reads theme.css the moment it changes; writing in
+        # place lets it open a half-written (or still-locked) file, which shows
+        # up as "CSSProcessor Error ... Permission denied" and silently drops the
+        # palette for that reload. A rename is atomic, so the watcher only ever
+        # sees a complete file. The .tmp name is not an imported stylesheet, so
+        # creating it does not itself trigger a reload.
+        # UTF8Encoding($false) rather than Set-Content -Encoding utf8: PS 5.1
+        # always emits a BOM, and yasb reads stylesheets as plain utf-8, so the
+        # BOM survives as a stray ﻿ at the head of the sheet.
+        $tmp = "$themeFile.tmp"
+        [System.IO.File]::WriteAllText($tmp, $desired, (New-Object System.Text.UTF8Encoding $false))
+        Move-Item -Path $tmp -Destination $themeFile -Force
     }
 } catch {
     # A theme write failure must not take the label down with it.
