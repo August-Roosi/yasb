@@ -49,7 +49,6 @@ bars:
       - "open_meteo"
       right:
       - "media"
-      - "microphone"
       - "volume"
       - "wifi"
       - "vpn_status"
@@ -221,6 +220,7 @@ widgets:
         round_corners: false
         alignment: "center"
         direction: "down"
+        extended: true
       callbacks:
         on_left: "toggle_calendar"
         on_right: "toggle_label"
