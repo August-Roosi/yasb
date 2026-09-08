@@ -2,4 +2,8 @@ yasb.log
 yasb.log.*
 theme.css
 theme.css.tmp
+meters.css
+meters.css.tmp
+.native_interop.dll
 .vpn_cache.json
+.ai_usage_*.cache.json

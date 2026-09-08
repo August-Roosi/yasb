@@ -115,4 +115,29 @@
     /* --- Legacy accent palette --- */
     --lavender: #b4befe;
 
+    /* --- Status-bar system: segmented monochrome with intentional signals ---
+       Values are the dark artboard of the status-bar design guide, converted
+       from oklch. Colour appears only where it carries meaning: the active
+       desktop, the two AI budget meters, battery, and the power button. */
+    --status-bar-bg: #110c09;
+    --status-ink: #f0ebdc;
+    --status-ink-2: #bcb6b1;
+    --status-muted: #a39d98;
+    --status-rule: #322d29;
+    --status-cell: #28231f;
+    --status-track: #2d2824;
+    --status-workspace-active: #e5d937;
+    --status-workspace-active-ink: #110c09;
+    --status-claude: #f97770;
+    --status-claude-dim: #bb6d67;
+    --status-codex: #e5d937;
+    --status-codex-dim: #aaa23f;
+    --status-volume-fill: #362c24;
+    --status-battery-fill: #16452a;
+    --status-battery-alarm: #4a1a16;
+    --status-vpn-bg: #e5d937;
+    --status-vpn-ink: #110c09;
+    --status-power: #d33a3c;
+    --status-power-ink: #fefcf4;
+
 }

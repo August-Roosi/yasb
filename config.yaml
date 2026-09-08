@@ -33,7 +33,7 @@ bars:
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 32
+      height: 30
     padding:
       top: 0
       left: 0
@@ -44,11 +44,13 @@ bars:
       - "windows_workspaces"
       - "taskbar"
       - "quick_launch"
+      - "meters"
       center:
       - "clock"
-      - "open_meteo"
-      right:
       - "media"
+      right:
+      - "claude_usage"
+      - "codex_usage"
       - "volume"
       - "wifi"
       - "vpn_status"
@@ -96,7 +98,7 @@ widgets:
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
-      icon_size: 16
+      icon_size: 14
       tooltip: true
       show_only_visible: true
       strict_filtering: true
@@ -121,13 +123,13 @@ widgets:
   battery:
     type: "yasb.battery.BatteryWidget"
     options:
-      label: "<span>{icon}</span>{percent}%"
-      label_alt: "<span>{icon}</span>{percent}% | {time_remaining}"
+      label: "<span class=\"tag\">BAT</span><span>{icon}</span>{percent}%"
+      label_alt: "<span class=\"tag\">BAT</span><span>{icon}</span>{percent}% | {time_remaining}"
       update_interval: 5000
       time_remaining_natural: False
       hide_unsupported: True
       charging_options:
-        icon_format: "{charging_icon}"
+        icon_format: "{charging_icon}{icon}"
         blink_charging_icon: true
         blink_interval: 500
       status_thresholds:
@@ -138,11 +140,11 @@ widgets:
         full: 100
       status_icons:
         icon_charging: "\udb81\udea5"
-        icon_critical: "\uf244"
-        icon_low: "\uf243"
-        icon_medium: "\uf242"
-        icon_high: "\uf241"
-        icon_full: "\uf240"
+        icon_critical: ""
+        icon_low: ""
+        icon_medium: ""
+        icon_high: ""
+        icon_full: ""
       label_shadow:
         enabled: true
         color: "black"
@@ -154,9 +156,9 @@ widgets:
       label: "{title}"
       label_alt: "{artist} - {title}"
       max_field_size:
-        label: 40
+        label: 28
         label_alt: 70
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
       controls_left: true
       controls_hide: true
@@ -239,8 +241,8 @@ widgets:
   windows_workspaces:
     type: "yasb.windows_desktops.WorkspaceWidget"
     options:
-      label_workspace_btn: "\udb81\udc3d"
-      label_workspace_active_btn: "\udb81\udc3e"
+      label_workspace_btn: "{index}"
+      label_workspace_active_btn: "{index}"
       btn_shadow:
         enabled: true
         color: "black"
@@ -262,10 +264,10 @@ widgets:
         on_right: "toggle_label"
       ethernet_label: "<span>{wifi_icon}</span>"
       ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
-      ethernet_icon: "\ueba9"
+      ethernet_icon: "\udb80\ude00"
       get_exact_wifi_strength: false  # Optional. Will require location access permission if true.
       wifi_icons: [
-        "\udb82\udd2e",  # Icon for 0% strength
+        "\udb82\udd2d",  # no connection - crossed-out fan, filled to match the rest
         "\udb82\udd1f",  # Icon for 1-24% strength
         "\udb82\udd22",  # Icon for 25-49% strength
         "\udb82\udd25",  # Icon for 50-74% strength
@@ -297,11 +299,26 @@ widgets:
           "\uec3e",
           "\uec3f",
         ]
+  meters:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "{data}"
+      label_alt: "{data}"
+      class_name: "meters-widget"
+      tooltip: false
+      exec_options:
+        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\roosi\\.config\\yasb\\meters.ps1"
+        run_interval: 1000
+        return_format: "string"
+        hide_empty: true
+        use_shell: true
+      callbacks:
+        on_left: "do_nothing"
   vpn_status:
     type: "yasb.custom.CustomWidget"
     options:
-      label: "<span>\udb81\udd82</span>{data}"
-      label_alt: "<span>\udb81\udd82</span>{data}"
+      label: "<span class=\"tag\">VPN</span>{data}"
+      label_alt: "<span class=\"icon\">\udb81\udd82</span>{data}"
       class_name: "vpn-status-widget"
       tooltip: true
       exec_options:
@@ -309,6 +326,36 @@ widgets:
         run_interval: 5000
         return_format: "string"
         hide_empty: true
+        use_shell: true
+      callbacks:
+        on_left: "toggle_label"
+  claude_usage:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "<span class=\"tag\">CLD</span>{data}"
+      label_alt: "<span class=\"tag\">CLD</span>{data}"
+      class_name: "claude-usage-widget"
+      tooltip: false
+      exec_options:
+        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\roosi\\.config\\yasb\\ai_usage.ps1 -Provider claude"
+        run_interval: 60000
+        return_format: "string"
+        hide_empty: false
+        use_shell: true
+      callbacks:
+        on_left: "toggle_label"
+  codex_usage:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "<span class=\"tag\">CDX</span>{data}"
+      label_alt: "<span class=\"tag\">CDX</span>{data}"
+      class_name: "codex-usage-widget"
+      tooltip: false
+      exec_options:
+        run_cmd: "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\roosi\\.config\\yasb\\ai_usage.ps1 -Provider codex"
+        run_interval: 60000
+        return_format: "string"
+        hide_empty: false
         use_shell: true
       callbacks:
         on_left: "toggle_label"
@@ -389,14 +436,14 @@ widgets:
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
-      label: "<span>{icon}</span> {level}"
-      label_alt: "{volume}"
+      label: "<span class=\"tag\">VOL</span>{level}"
+      label_alt: "<span class=\"tag\">VOL</span>{volume}"
       volume_icons:
-        - "\udb81\udf5f"  # Icon for muted
-        - "\uf026"  # Icon for 0-10% volume
-        - "\uf027"  # Icon for 11-30% volume
-        - "\uf027"  # Icon for 31-60% volume
-        - "\uf028"  # Icon for 61-100% volume
+        - "\udb81\udf5f"  # muted
+        - "\uf026"  # 0-10%
+        - "\uf027"  # 11-30%
+        - "\uf027"  # 31-60%
+        - "\uf028"  # 61-100%
       audio_menu:
         blur: false
         round_corners: true

@@ -7,25 +7,280 @@
  * Imported last, so equal-specificity rules here win.
  */
 
-/* VPN status widget.
- * Rendered as a filled badge rather than plain bar text: the whole point is to
- * be unmissable at a glance. Hidden entirely when no tunnel is up (hide_empty),
- * so the badge showing at all already means "you are on something". */
-.custom-widget.vpn-status-widget .widget-container {
-    background-color: var(--accent-track);
-    border: 1px solid var(--accent-glow);
-    border-radius: 4px;
-    margin: 4px 2px 4px 2px;
-    padding: 0 8px 0 6px;
+/*
+ * ===========================================================================
+ * Status-bar design system
+ * ===========================================================================
+ *
+ * A 30px control strip, flush to the screen edge: no rounded corners, no
+ * floating chips, no gaps. Structure comes from hairline dividers between
+ * flat cells; colour is spent only where it carries meaning - the active
+ * desktop, the two AI budget meters, battery, and the power button.
+ *
+ * Two type roles carry the whole bar:
+ *   .tag    condensed uppercase chrome (CLD, CDX, VOL, BAT, VPN, the clock)
+ *   .label  everything else - values, prose, and the AI budget meters
+ *
+ * Every colour is a status-* token, so the same layout serves both the dark
+ * default and the light palette that the VPN switch brings in.
+ */
+
+/* No bottom rule: the guide's strip ends flat against the wallpaper, and on the
+ * light palette a hairline there reads as a stray white line rather than an edge. */
+.yasb-bar {
+    background-color: var(--status-bar-bg);
+    border: none;
 }
-.custom-widget.vpn-status-widget .label {
-    color: var(--on-accent);
-    font-weight: 700;
-    padding: 0 0 0 5px;
-}
-.custom-widget.vpn-status-widget .icon {
-    color: var(--on-accent);
-    font-size: 14px;
-    padding: 0;
+.yasb-bar .widget {
+    color: var(--status-ink);
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
+    font-size: 11px;
+    font-weight: 600;
     margin: 0;
+    padding: 0;
+}
+.yasb-bar .widget .label,
+.yasb-bar .widget .icon {
+    color: var(--status-ink);
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0;
+}
+
+/* Chrome labels. Oswald in the design guide; Bahnschrift Condensed is the
+ * closest condensed grotesque that ships with Windows, so nothing has to be
+ * installed for the bar to look right. Qt honours only the first family in a
+ * QSS list, so that entry has to be a real family name. */
+.yasb-bar .tag {
+    color: var(--status-muted);
+    font-family: "Bahnschrift Condensed", "Segoe UI Semibold";
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    min-width: 0;
+    padding: 2px 5px 0 0;
+}
+
+/* --- Left: desktops and running apps ------------------------------------ */
+
+.yasb-bar .windows-desktops {
+    padding: 0;
+}
+.yasb-bar .windows-desktops .widget-container {
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+.yasb-bar .windows-desktops .ws-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--status-muted);
+    font-family: "Bahnschrift Condensed", "Segoe UI Semibold";
+    font-size: 13px;
+    font-weight: 700;
+    height: 30px;
+    margin: 0;
+    min-width: 22px;
+    padding: 0;
+    text-align: center;
+}
+.yasb-bar .windows-desktops .ws-btn:hover {
+    background-color: var(--status-cell);
+    color: var(--status-ink);
+}
+.yasb-bar .windows-desktops .ws-btn.active {
+    background-color: var(--status-workspace-active);
+    color: var(--status-workspace-active-ink);
+    font-size: 13px;
+    width: auto;
+}
+
+/* The running-app strip is its own group, so it opens with a divider and a
+ * little breathing room rather than butting against the desktop numbers. */
+.yasb-bar .taskbar-widget {
+    background-color: var(--status-bar-bg);
+    border-left: 1px solid var(--status-rule);
+    margin-left: 8px;
+    padding: 0 6px;
+}
+.yasb-bar .taskbar-widget .app-container,
+.yasb-bar .taskbar-widget .app-container.running,
+.yasb-bar .taskbar-widget .app-container.foreground {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0 4px;
+}
+.yasb-bar .taskbar-widget .app-container.foreground {
+    background-color: var(--status-cell);
+    border-bottom: 2px solid var(--status-workspace-active);
+}
+
+/* --- Centre: clock and what is playing ---------------------------------- */
+
+.yasb-bar .clock-widget {
+    padding: 0 12px;
+}
+.yasb-bar .clock-widget .label {
+    color: var(--status-ink);
+    font-family: "Bahnschrift Condensed", "Segoe UI Semibold";
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 2px;
+    text-transform: uppercase;
+}
+/* Prose, not chrome: the one place in the bar that keeps mixed case. */
+.yasb-bar .media-widget {
+    border-left: 1px solid var(--status-rule);
+    margin: 0;
+    max-width: 260px;
+    padding: 0 12px;
+}
+.yasb-bar .media-widget .label {
+    color: var(--status-ink-2);
+    font-family: "Segoe UI", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0;
+    min-width: 0;
+}
+.yasb-bar .media-widget .btn {
+    color: var(--status-muted);
+    font-size: 12px;
+    padding: 0 2px;
+}
+
+/* --- Right: live service data in divided cells --------------------------- */
+
+/* The hairline between cells. The background-color is not decoration: Qt only
+ * paints a border on a plain QWidget once the rule also gives it a background,
+ * so without it the dividers silently do not draw. */
+.yasb-bar .claude-usage-widget,
+.yasb-bar .codex-usage-widget,
+.yasb-bar .volume-widget,
+.yasb-bar .wifi-widget,
+.yasb-bar .vpn-status-widget,
+.yasb-bar .battery-widget {
+    background-color: var(--status-bar-bg);
+    border-left: 1px solid var(--status-rule);
+    margin: 0;
+    padding: 0 10px;
+}
+.yasb-bar .custom-widget.claude-usage-widget .widget-container,
+.yasb-bar .custom-widget.codex-usage-widget .widget-container,
+.yasb-bar .custom-widget.vpn-status-widget .widget-container {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The AI budget meters. ai_usage.ps1 emits them as two stacked rows of rich
+ * text - a session bar over a hairline week bar - and colours each run from the
+ * same status-* tokens this file uses, because Qt paints label markup itself
+ * and the stylesheet cannot reach inside it. All this rule owns is the metrics.
+ * The markup has to sit outside the <span>, too: yasb sets a span part's text
+ * verbatim and only formats the parts around it. */
+.yasb-bar .custom-widget.claude-usage-widget .label,
+.yasb-bar .custom-widget.codex-usage-widget .label {
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 0;
+}
+.yasb-bar .custom-widget.claude-usage-widget .tag {
+    color: var(--status-claude);
+}
+.yasb-bar .custom-widget.codex-usage-widget .tag {
+    color: var(--status-codex);
+}
+
+.yasb-bar .volume-widget .widget-container,
+.yasb-bar .battery-widget .widget-container {
+    margin: 0;
+    padding: 0;
+}
+.yasb-bar .volume-widget .label,
+.yasb-bar .battery-widget .label {
+    color: var(--status-ink);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0;
+}
+/* Only the charging bolt is left in this label - the level itself is the cell's
+ * background, painted from meters.css. */
+.yasb-bar .battery-widget .icon {
+    color: var(--status-ink);
+    font-size: 11px;
+    min-width: 0;
+    padding: 0 5px 0 0;
+}
+/* A widget with no output and no layout: it exists to schedule meters.ps1. */
+.yasb-bar .meters-widget {
+    margin: 0;
+    max-width: 0;
+    min-width: 0;
+    padding: 0;
+}
+.yasb-bar .wifi-widget {
+    padding: 0 10px;
+}
+/* These Material Design glyphs claim an 8px advance but draw 14px of ink with no
+ * left bearing, so they overflow to the right: min-width stops Qt clipping that
+ * overflow at the content edge, and the padding-right recentres what is drawn -
+ * Qt centres the 8px advance box, which leaves the visible ink 3px right of
+ * centre, and padding shifts a centred label by half its value. */
+.yasb-bar .wifi-widget .icon,
+.yasb-bar .wifi-widget .label {
+    color: var(--status-ink);
+    font-size: 14px;
+    margin: 0;
+    min-width: 24px;
+    padding: 0 6px 0 0;
+}
+/* Present only while a tunnel is up (hide_empty), so the cell showing at all
+ * already means "you are on something" - and the yellow ground says it loudly
+ * enough that the network name needs no icon beside it. */
+.yasb-bar .vpn-status-widget {
+    background-color: var(--status-vpn-bg);
+    border-left: none;
+}
+.yasb-bar .custom-widget.vpn-status-widget .label {
+    color: var(--status-vpn-ink);
+    font-family: "Segoe UI", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+    padding: 0;
+}
+.yasb-bar .vpn-status-widget .tag {
+    color: var(--status-vpn-ink);
+}
+.yasb-bar .custom-widget.vpn-status-widget .icon {
+    color: var(--status-vpn-ink);
+    font-size: 13px;
+    min-width: 0;
+    padding: 0 5px 0 0;
+}
+
+/* The one saturated cell in the bar, and the only destructive control. */
+.yasb-bar .power-menu-widget {
+    background-color: var(--status-power);
+    border: none;
+    margin: 0;
+    min-width: 34px;
+    padding: 0;
+}
+.yasb-bar .power-menu-widget .label {
+    color: var(--status-power-ink);
+    font-size: 12px;
+    padding: 0;
 }

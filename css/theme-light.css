@@ -119,4 +119,28 @@
 
     /* --- Legacy accent palette --- */
     --lavender: #5b5fc7;
+
+    /* --- Status-bar system: the light artboard of the same guide.
+       Near-white ground, near-black ink, and the two AI meters recoloured to
+       stay legible on white (the dark artboard's lime is invisible here). */
+    --status-bar-bg: #fcfdff;
+    --status-ink: #08090b;
+    --status-ink-2: #46484a;
+    --status-muted: #4b4d50;
+    --status-rule: #d5d8da;
+    --status-cell: #e6e8ea;
+    --status-track: #dcdee0;
+    --status-workspace-active: #08090b;
+    --status-workspace-active-ink: #fcfdff;
+    --status-claude: #ac1922;
+    --status-claude-dim: #d08b8f;
+    --status-codex: #14874e;
+    --status-codex-dim: #8fbfa4;
+    --status-volume-fill: #e6e8ea;
+    --status-battery-fill: #d7ecde;
+    --status-battery-alarm: #f7dcda;
+    --status-vpn-bg: #e5d937;
+    --status-vpn-ink: #08090b;
+    --status-power: #ac1922;
+    --status-power-ink: #f9fcff;
 }
