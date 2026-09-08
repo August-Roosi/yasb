@@ -104,7 +104,7 @@
 .yasb-bar .taskbar-widget {
     background-color: var(--status-bar-bg);
     border-left: 1px solid var(--status-rule);
-    margin-left: 8px;
+    margin-left: 0;
     padding: 0 6px;
 }
 .yasb-bar .taskbar-widget .app-container,
